@@ -20,6 +20,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
+  "homepage": "https://htmlpreview.github.io/?https://github.com/pengliheng/weather-system/blob/main/build",
   "eslintConfig": {
     "extends": [
       "react-app",
