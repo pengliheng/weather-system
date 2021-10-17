@@ -1,23 +1,25 @@
-import logo from './logo.svg';
+import React from 'react'
+import { reducer } from './store/reducer';
+import { SearchBar } from './components/SearchBar/index'
+import { WeatherDisplay } from './components/WeatherDisplay/index'
+import { HistoryDisplay } from './components/HistoryDisplay/index'
 import './App.css';
 
+const initialState = {
+  isLoading: false,
+  weather: undefined,
+  history: []
+}
+
 function App() {
+  const [state, dispatch] = React.useReducer(reducer, initialState)
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h2 className="App-title">Today's weather</h2>
+      <SearchBar dispatch={dispatch} />
+      <WeatherDisplay data={state} />
+      <h2 className="App-title">Search history</h2>
+      <HistoryDisplay data={state.history} dispatch={dispatch} />
     </div>
   );
 }
