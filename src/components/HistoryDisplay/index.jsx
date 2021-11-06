@@ -3,13 +3,11 @@ import moment from "moment";
 import axios from "axios";
 import { FaSistrix } from "react-icons/fa";
 import { RiDeleteBin5Line } from "react-icons/ri";
-
 import "./index.css";
 import { StoreContext } from "../../App";
 
 export function HistoryDisplay() {
   const { state, dispatch } = React.useContext(StoreContext);
-  const data = state;
   function handleSearch({ city, country }) {
     dispatch({ type: "loading" });
     axios
@@ -36,10 +34,10 @@ export function HistoryDisplay() {
   function handleDelete(history) {
     dispatch({ type: "deleteOneHistory", payload: history });
   }
-  if (data.length > 0) {
+  if (state.history.length > 0) {
     return (
       <div className="history">
-        {data.map((history, i) => (
+        {state.history.map((history, i) => (
           <p className="history-item" key={i}>
             <span className="history-item-left">
               {i + 1}. {history.city}, {history.country}

@@ -18,7 +18,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "serve": "npx serve -s build"
   },
   "homepage": "https://htmlpreview.github.io/?https://github.com/pengliheng/weather-system/blob/main/build",
   "eslintConfig": {
